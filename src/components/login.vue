@@ -29,7 +29,6 @@ export default ({
       }
     },
     mounted(){
-        console.log('entro login')
     },
     methods:{
       fDoLogin(){
@@ -38,7 +37,6 @@ export default ({
           password: this.dPassword //1q2w3e4r
         }
         axios.post("https://api.rodeoworld.co.uk/businesses/login", payload).then(response =>{
-          console.log('response', response)
           this.dLoginError = false
           this.$emit("loadUserData",response.data)
         }).catch(er =>{

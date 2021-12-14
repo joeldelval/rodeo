@@ -112,8 +112,6 @@ export default ({
   },
   mounted(){
     this.fgetVenues()
-    console.log('pUSer',this.pUser)
-    console.log('pruebo',this.pruebo)
   },
   methods:{
     fViewOffer(item){
@@ -127,7 +125,6 @@ export default ({
     //Services
     fgetVenues(){
       axios.get("https://api.rodeoworld.co.uk/venues/list?idBusiness="+this.pUser.id, { 'headers': { 'Authorization': this.pUser.token }}).then(response =>{
-        console.log('response', response)
         this.dVenues = response.data
       }).catch(er =>{
         console.log(er)
@@ -135,7 +132,6 @@ export default ({
     },
     fgetOffers(){
       axios.get("https://api.rodeoworld.co.uk/offers/list/"+this.dSelectedVenue.id, { 'headers': { 'Authorization': this.pUser.token }}).then(response =>{
-        console.log('response', response)
         this.dOffers = response.data
       }).catch(er =>{
         console.log(er)
@@ -143,7 +139,6 @@ export default ({
     },
     fgetOfferDetails(){
       axios.get("https://api.rodeoworld.co.uk/offers/"+this.dSelectedOffer.id, { 'headers': { 'Authorization': this.pUser.token }}).then(response =>{
-        console.log('response', response)
         this.dOffer = response.data
       }).catch(er =>{
         console.log(er)
